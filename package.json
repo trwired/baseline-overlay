@@ -1,0 +1,26 @@
+{
+  "name": "baseline-overlay",
+  "version": "1.0.0",
+  "description": "A small utility to visualise a baseline grid over a webpage",
+  "main": "baseline-overlay.js",
+  "repository": {
+    "type": "git",
+    "email": "igor.kalat@gmail.com"
+  },
+  "keywords": [
+    "css",
+    "baseline",
+    "rhytm",
+    "typography",
+    "design",
+    "web"
+  ],
+  "author": {
+    "name": "Igor Kalat",
+    "url": "https://twitter.com/trwired"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "jquery": ">=1.8.0"
+  }
+}

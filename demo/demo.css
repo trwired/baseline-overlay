@@ -1,0 +1,71 @@
+/* generated with http://www.gridlover.net/app/ */
+
+body {
+  font-size: 1.125em;
+  line-height: 1.5em;
+  margin: 0;
+}
+
+h1 {
+  font-size: 4.222222222em;
+  line-height: 1.065789474em;
+  margin-top: 0.71052632em;
+  margin-bottom: 0.35526316em;
+}
+
+h2 {
+  font-size: 2.611111111em;
+  line-height: 1.14893617em;
+  margin-top: 1.14893617em;
+  margin-bottom: 0.57446809em;
+}
+
+h3 {
+  font-size: 1.611111111em;
+  line-height: 1.862068966em;
+  margin-top: 0.93103448em;
+  margin-bottom: 0.93103448em;
+}
+
+h4 {
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+article {
+    max-width: 754px;
+    margin: 0 auto;
+}
+
+p, ul, ol, pre, table, blockquote {
+  font-family: "Lato", HelveticaNeue, "Helvetica Neue", Arial, sans-serif;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+/* Sanitation */
+hr {
+  border: 1px solid;
+  margin: -1px 0;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+b, strong, em, small, code {
+  line-height: 1;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+}
+
+sub {
+  top: 0.4em;
+}
