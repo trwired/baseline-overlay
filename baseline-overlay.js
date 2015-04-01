@@ -79,16 +79,17 @@
 
   var paintCanvas = function () {
     var context = canvas.getContext("2d");
-    var yPos = 0;
+    var yPosCurrent = 0;
+    var yPosReal = 0;
     context.strokeStyle = settings.lineColor;
     context.lineWidth = 0.5;
-    while (yPos <= size.height) {
-      yPos = Math.floor(yPos) + 0.5;  // because lines on canvas are drawn in
-                                      // 0.5 intervals
-      context.moveTo(0, yPos);
-      context.lineTo(size.width, yPos);
+    while (yPosReal <= size.height) {
+      yPosCurrent = Math.floor(yPosReal) + 0.5;  // because lines on canvas
+                                                 // are drawn in 0.5 intervals
+      context.moveTo(0, yPosCurrent);
+      context.lineTo(size.width, yPosCurrent);
       context.stroke();
-      yPos += settings.gridSize;
+      yPosReal += settings.gridSize;
     }
   };
 

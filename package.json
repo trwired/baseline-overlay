@@ -1,6 +1,6 @@
 {
   "name": "baseline-overlay",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A small utility to visualise a baseline grid over a webpage",
   "main": "baseline-overlay.js",
   "repository": {
