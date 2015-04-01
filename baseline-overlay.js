@@ -4,7 +4,6 @@
 
   "use strict";
 
-  var blockSize;
   var canvas;
   var settings;
   var url;
@@ -20,7 +19,7 @@
   }
 
   var initCanvas = function () {
-    var attrs = 'width="{0}" height="{0}"'.format(blockSize);
+    var attrs = 'width="{0}" height="{0}"'.format(settings.gridSize);
     var element = $('<canvas {0}></canvas>'.format(attrs))
       .css({position: "absolute", top: "0", left: "-9999px"});
     canvas = element[0];
@@ -62,10 +61,15 @@
     button = $('<button type="button">toggle rhytm grid</button>')
       .css({
         "font-family": "sans-serif",
+        "font-weight": "bold",
+        "background-color": settings.lineColor,
+        "color": settings.textColor,
+        "border": "none",
+        "padding": "0.5em",
         "position": "fixed",
         "bottom": "10px",
         "left": "10px",
-        "z-index": settings.zIndex + 1
+        "z-index": settings.zIndex
       })
       .click(function () {
         $(overlay).toggle();
@@ -76,21 +80,20 @@
   var setURL = function () {
     var context = canvas.getContext("2d");
     context.strokeStyle = settings.lineColor;
-    context.moveTo(0, blockSize);
-    context.lineTo(blockSize, blockSize);
+    context.moveTo(0, settings.gridSize);
+    context.lineTo(settings.gridSize, settings.gridSize);
     context.stroke();
     url = canvas.toDataURL("image/png");
   };
 
   $.fn.baselineOverlay = function (options) {
     settings = $.extend({
-      baseSize: 10,
-      gridHeight: 1.5,
+      gridSize: 19, // assuming default font-size: 16px and line-height: 1.2
       lineColor: "#db186f",
+      textColor: "#fff",
       zIndex: 99999
     }, options);
 
-    blockSize = settings.baseSize * settings.gridHeight;
     initCanvas();
     setURL();
     initTarget(this);

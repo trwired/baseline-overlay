@@ -27,23 +27,25 @@ Options
 -------
 
 
-baseSize
-    (default value: *"10px"*)
+gridSize
+    (default value: *19*)
 
-    Set it to the font size of the regular text in your page.
-
-
-gridHeight
-    (default value: *1.5*)
-
-    The multiplier by which the height of the line is calculated. Generally it
-    should be equal to the value of *line-height* set for your regular text.
+    Set it to the pixel of a single line. This is usually the pixel size of the
+    font chosen to represent regular text multiplied by the unitless
+    *line-height* attribute. *(i.e. if you choose font-size of 18px and
+    line-height of 1.5, the gridSize parameter would be 27.)*
 
 
 lineColor
     (default value: *"#db186f"*)
 
     The color with which the lines in grid are painted with.
+
+
+textColor
+    (default value: *"#fff"*)
+
+    The color of the button's label.
 
 
 zIndex
