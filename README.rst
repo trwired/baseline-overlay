@@ -5,8 +5,7 @@ Baseline overlay
 A small utility to visualise a baseline grid over a webpage. Requires jQuery.
 (Sorry.)
 
-.. image:: http://i.imgur.com/LS0xjQN.png
-    :scale: 75%
+.. image:: http://i.imgur.com/jOvTzse.png
 
 
 Usage

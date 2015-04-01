@@ -6,7 +6,7 @@
 
   var canvas;
   var settings;
-  var url;
+  var size;
 
   // http://stackoverflow.com/questions/610406/
   if (!String.prototype.format) {
@@ -19,7 +19,7 @@
   }
 
   var initCanvas = function () {
-    var attrs = 'width="{0}" height="{0}"'.format(settings.gridSize);
+    var attrs = 'width="{0}" height="{1}"'.format(size.width, size.height);
     var element = $('<canvas {0}></canvas>'.format(attrs))
       .css({position: "absolute", top: "0", left: "-9999px"});
     canvas = element[0];
@@ -34,16 +34,16 @@
     var generateOverlayStyles = function () {
       var offset = $(target).offset();
       return {
-        "width": $(target).width() + "px",
-        "height": $(target).height() + "px",
-        "left": offset.left + "px",
-        "top": offset.top + "px"
+        width: size.width + "px",
+        height: size.height + "px",
+        left: offset.left + "px",
+        top: offset.top + "px"
       };
     };
 
     css = $.extend(
       {
-        "background-image": "url({0})".format(url),
+        "background-image": "url({0})".format(canvas.toDataURL("image/png")),
         "pointer-events": "none",
         "position": "absolute",
         "z-index": settings.zIndex
@@ -77,13 +77,19 @@
     $(target).append(button);
   };
 
-  var setURL = function () {
+  var paintCanvas = function () {
     var context = canvas.getContext("2d");
+    var yPos = 0;
     context.strokeStyle = settings.lineColor;
-    context.moveTo(0, settings.gridSize);
-    context.lineTo(settings.gridSize, settings.gridSize);
-    context.stroke();
-    url = canvas.toDataURL("image/png");
+    context.lineWidth = 0.5;
+    while (yPos <= size.height) {
+      yPos = Math.floor(yPos) + 0.5;  // because lines on canvas are drawn in
+                                      // 0.5 intervals
+      context.moveTo(0, yPos);
+      context.lineTo(size.width, yPos);
+      context.stroke();
+      yPos += settings.gridSize;
+    }
   };
 
   $.fn.baselineOverlay = function (options) {
@@ -94,8 +100,10 @@
       zIndex: 99999
     }, options);
 
+    size = {width: $(this).width(), height: $(this).height()};
+
     initCanvas();
-    setURL();
+    paintCanvas();
     initTarget(this);
 
     return this;
